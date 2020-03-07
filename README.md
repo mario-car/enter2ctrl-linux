@@ -1,4 +1,4 @@
-# keyboard-linux
+# enter2ctrl-linux
 CapsLock as Control when pressed and Escape when released; Enter as Control when pressed
 
 This small script uses xmodmap and xcape to modify keyboard to have Control modifier easily accessable
