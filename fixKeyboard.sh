@@ -24,3 +24,18 @@ xmodmap -e "keycode any = Return"
 
 # Finally use xcape to cause the Return to generate a Return when tapped.
 xcape -e "$spare_modifier=Return"
+
+# Map an unused modifier's keysym to the Tabs's keycode and make it a
+# control modifier. It needs to be an existing key so that emacs won't
+# spazz out when you press it. Hyper_R is a good candidate.
+spare_modifier2="Super_R"
+xmodmap -e "keycode 23 = $spare_modifier2"
+xmodmap -e "remove mod4 = $spare_modifier2" # super_r is mod4 by default
+xmodmap -e "add mod4 = $spare_modifier2"
+
+# Map Tab to an unused keycode (to keep it around for xcape to
+# use).
+xmodmap -e "keycode any = Tab"
+
+# Finally use xcape to cause the Tab to generate a Tab when tapped.
+xcape -e "$spare_modifier2=Tab"
